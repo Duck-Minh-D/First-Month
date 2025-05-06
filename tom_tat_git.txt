@@ -1,0 +1,79 @@
+GIT
+- Là một hệ thống kiểm soát phiên bản (control version)
+- Giúp bạn theo dõi những thay đổi trong mã
+- Được sử dụng để cộng tác viết mã
+
+* Cấu hình Git
+- Sử dụng câu lệnh ('git config --global user.name' để cấu hình tên người dùng và 'git config --global user.email' để cấu hình email (thường sử dụng email đã đăng nhập Github))
+
+* Tạo thư mục Git
+- Sử dụng câu lệnh (mkdir) để tạo một thư mục và sử dụng lệnh (cd) để thay đổi thư mục làm việc hiện tại
+
+* Initialize Git (Khởi tạo Git)
+- Sau khi điều hướng đến đúng thư mục, bạn có thể khởi tạo git bằng câu lệnh (git init)
+
+* Thêm file 
+- Câu lệnh (ls) sẽ liệt kê các tập tin trong thư mục
+- Câu lệnh (git status) để kiểm tra trạng thái xem liệu file có phải là một phần trong kho lưu trữ của chúng ta hay không
+- Các tệp trong thư mục kho lưu trữ Git có thể ở 1 trong 2 trạng thái: Được theo dõi (Tracked) - các tệp mà Git biết và được thêm vào kho lưu trữ và Không được theo dõi (Untracked) - các tệp nằm trong thư mục làm việc của bạn nhưng chưa được thêm vào kho lưu trữ
+
+* Git Staging Environment ( Môi trường dàn dựng Git)
+- Tệp được dàn dựng (Staged files) là các tệp đã sẵn sàng để cam kết (commited) với kho lưu trữ mà bạn đang làm việc
+- Để thêm một tệp tin vào môi trường dàn dựng, ta có thể sử dụng câu lệnh (git add ...)
+- Để có thêm thêm nhiều tệp trong thư mục hiện tại vào môi trường dàn dựng, ta có thể sử dụng câu lệnh (git add --all) hay (git add -A)
+
+* Git Commit ( Cam kết Git)
+- Thêm commit để theo dõi tiến trình và thay đổi của chúng ta khi chúng ta làm việc
+- Khi viết commit, chúng ta luôn nên đưa vào một thông điệp (-m) 
+- Bằng cách thêm thông điệp rõ ràng vào từng mục commit, chúng ta hoặc người khác có thể dễ dàng xem nội dung nào đã thay đổi và khi nào. 
+- Câu lệnh thường sử dụng khi commit (git commit -m "..."). Câu lệnh này thực hiện lệnh commit và thêm một thông báo (-m)
+- Sử dụng lệnh (git status --short) để kiểm tra trạng thái của kho lưu trữ nhưng chỉ xem những thay đổi theo cách nhỏ gọn hơn ( Với các short status flags : (?? - Các tập tin chưa được theo dõi
+		A - Các tập tin được thêm vào giai đoạn
+		M - Các tập tin đã sửa đổi
+		D - Các tập tin đã xóa))
+- Để cam kết trực tiếp, sử dụng câu lệnh (git commit -a -m "..."), với (-a) là tự động add tất cả file đã tracked trước khi commit
+- Để xem lịch sử commit của một kho lưu trữ, có thể sử dụng lệnh (git log) 
+
+* Git Help
+- Nếu bạn gặp khó khăn trong việc nhớ lệnh hoặc tùy chọn cho lệnh, bạn có thể sử dụng Git help bằng câu lệnh ( 'git command -help' - Xem tất cả các tùy chọn cho lệnh sẵn có hoặc 'git help --all' - Xem tất cả các lệnh có thể)
+
+
+* Git Branch
+- Chúng ta đang làm việc trong kho lưu trữ cục bộ của mình và không muốn làm gián đoạn hoặc phá hỏng dự án chính, thì chúng ta có thể sử dụng git branch
+- Sử dụng câu lệnh (git branch ...) để tạo một branch
+- Sử dụng câu lệnh (git branch) để xem tất cả branch có trong kho lưu trữ
+- checkout là lệnh được sử dụng để kiểm tra branch và có thể di chuyển chúng ta từ branch hiện tại đến branch khác với câu lệnh (git branch ...)
+- Chúng ta cũng có thể vừa tạo branch mới và vừa di chuyển đến branch mới tạo đó bằng câu lệnh (git checkout -b ...)
+* Git Merge
+- Để hợp nhất branch, ta sử dụng câu lệnh (git merge ...)
+- Và để xóa branch không cần thiết, ta sử dụng câu lệnh (git branch -d ...)
+- Merge Conflict
+
+** Github
+
+*Git Pull from Github
+- pull sẽ cho bạn thấy được những thay đổi mới nhất cho bản sao cục bộ của mình
+- pull là sự kết hợp của 2 lệnh khác nhau : 'fetch' và 'merge'
+- fetch lấy toàn bộ lịch sử thay đổi của một branch/repo được theo dõi
+- Trên local git (git cục bộ). chúng ta có thể sử dụng lệnh (git fetch origin) để xem những thay đổi trên Github
+- merge kết hợp branch hiện tại với một branch được chỉ định
+- Chúng ta có thể merge branch hiện tại (master) với (origin/master) bằng câu lệnh (git merge origin/master)
+- pull được sử dụng để kéo tất cả các thay đổi từ remote repo vào branch mà bạn đang làm việc  
+- Để cập nhật local git của chúng ta, sử dụng câu lệnh (git pull origin)
+
+* Git Push to Github
+- Để push local git của chúng ta lên Github, sử dụng câu lệnh (git push origin)
+
+* Git Github Branch
+* Git Pull Branch from Github
+- Chúng ta có thể xem tất cả các local branch và remote branch bằng câu lệnh (git branch -a) hoặc xem các remote branch bằng câu lệnh (git branch -r)
+
+* Git Push Branch to Github
+- Để có thể push branch từ local repo đến Github, chúng ta có thể sử dụng câu lệnh (git push origin ...)
+
+
+*** Git Contribute
+* Github Fork
+
+
+
